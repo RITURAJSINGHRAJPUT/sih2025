@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart India Hackathon 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000;
+            color: #e0e0e0;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #ec4899, #f97316, #eab308);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-bg {
+            background-color: #0a0a0a;
+        }
+        .hero-bg {
+            background: radial-gradient(circle at top left, rgba(236, 72, 153, 0.2) 0%, rgba(249, 115, 22, 0.05) 50%, rgba(234, 179, 8, 0) 100%), #000;
+        }
+        .form-input {
+            background-color: #1a1a1a; /* A slightly darker shade for the input */
+            border-color: #444; /* Darker border for contrast */
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease-in-out;
+            color: #e0e0e0;
+        }
+        .form-input:focus {
+            border-color: #f97316; /* Focus color on the input field */
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+        .faq-answer.open {
+            max-height: 200px; /* A safe value to accommodate content */
+            padding-top: 1rem;
+        }
+        .faq-answer p {
+            list-style-type: none;
+            margin-left: 0;
+            padding-left: 0;
+        }
+        /* Custom button style for Support links */
+        .support-btn {
+            background: linear-gradient(90deg, #ec4899, #f97316, #eab308); /* Gradient from hero section */
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px; /* Pill shape */
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.3s ease-in-out;
+        }
+        .support-btn:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <!-- Header & Navigation -->
+    <header class="bg-black sticky top-0 z-50 shadow-md border-b border-gray-900">
+        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#" class="text-2xl font-bold gradient-text">SIH Internal 2025</a>
+            <div class="space-x-4 hidden md:flex">
+                <a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                <a href="#register" class="text-gray-400 hover:text-white transition-colors">Register</a>
+                <a href="#support" class="text-gray-400 hover:text-white transition-colors">Support</a>
+                <a href="#faq" class="text-gray-400 hover:text-white transition-colors">FAQ</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 md:py-16">
+
+        <!-- Hero Section -->
+        <section id="home" class="text-center py-20 md:py-32 hero-bg">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">
+                <span class="gradient-text">Smart India Hackathon 2025</span> <br>
+            </h1>
+            <h3 class="text-4xl md:text-4xl font-extrabold text-white leading-tight">
+                <span class="gradient-text">SDC x SparshNFC</span>
+            </h3>
+        
+            <p class="mt-4 text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">Join us for 6 hours of innovation, collaboration, and problem-solving. Build the future with code!</p>
+            <p class="mt-4 text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">DATE : 17/09/2025<br> VENUE : BMCET Seminar Hall</p>
+        </section>
+
+        <!-- Registration Section -->
+        <section id="register" class="py-16 md:py-24 bg-black">
+            <div class="max-w-7xl mx-auto p-4 md:p-8 rounded-xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">Register Your Team</h2>
+                <div class="card-bg p-6 md:p-8 rounded-xl shadow-lg border border-gray-800">
+                    <form id="registration-form" class="space-y-10">
+                        <!-- Section 1: Problem Statement -->
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-6 border-b border-gray-700 pb-3 gradient-text">Problem Statement Details</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <input type="number" placeholder="Problem Statement No." name="problem-no" required class="form-input">
+                                <input type="text" placeholder="Theme" name="problem-theme" required class="form-input">
+                                <textarea placeholder="Problem Description" name="problem-desc" required class="form-input md:col-span-2 lg:col-span-1" rows="1"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Section 2: Team Leader -->
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-6 border-b border-gray-700 pb-3 gradient-text">Team Leader Details</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <input type="text" placeholder="Full Name" name="leader-name" required class="form-input">
+                                <input type="tel" placeholder="Contact Number" name="leader-contact" required class="form-input">
+                                <input type="email" placeholder="Email Address" name="leader-email" required class="form-input">
+                                <select name="leader-college" required class="form-input">
+                                    <option value="" disabled selected>Select College</option>
+                                    <option>Government College of Engineering, Surat</option>
+                                    <option>Sardar Vallabhbhai National Institute of Technology</option>
+                                    <option>Birla Vishvakarma Mahavidyalaya</option>
+                                    <option>Dharmsinh Desai University</option>
+                                    <option>L.D. College of Engineering</option>
+                                </select>
+                                <select name="leader-gender" required class="form-input">
+                                    <option value="" disabled selected>Select Gender</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Other</option>
+                                </select>
+                                <select name="leader-semester" required class="form-input">
+                                    <option value="" disabled selected>Select Semester</option>
+                                    <option>1</option> <option>2</option> <option>3</option> <option>4</option>
+                                    <option>5</option> <option>6</option> <option>7</option> <option>8</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Section 3: Member 2 -->
+                        <div>
+                            <h3 class="text-xl font-semibold text-white mb-6 border-b border-gray-700 pb-3">Member 2 Details</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <input type="text" placeholder="Full Name" name="member2-name" class="form-input">
+                                <input type="tel" placeholder="Contact Number" name="member2-contact" class="form-input">
+                                <input type="email" placeholder="Email Address" name="member2-email" class="form-input">
+                                <select name="member2-college" class="form-input">
+                                    <option value="" disabled selected>Select College</option>
+                                    <option>Government College of Engineering, Surat</option>
+                                    <option>Sardar Vallabhbhai National Institute of Technology</option>
+                                    <option>Birla Vishvakarma Mahavidyalaya</option>
+                                    <option>Dharmsinh Desai University</option>
+                                    <option>L.D. College of Engineering</option>
+                                </select>
+                                <select name="member2-gender" class="form-input">
+                                    <option value="" disabled selected>Select Gender</option>
+                                    <option>Male</option> <option>Female</option> <option>Other</option>
+                                </select>
+                                <select name="member2-semester" class="form-input">
+                                    <option value="" disabled selected>Select Semester</option>
+                                    <option>1</option> <option>2</option> <option>3</option> <option>4</option>
+                                    <option>5</option> <option>6</option> <option>7</option> <option>8</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Section 4: Member 3 -->
+                        <div>
+                            <h3 class="text-xl font-semibold text-white mb-6 border-b border-gray-700 pb-3">Member 3 Details</h3>
+                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <input type="text" placeholder="Full Name" name="member3-name" class="form-input">
+                                <input type="tel" placeholder="Contact Number" name="member3-contact" class="form-input">
+                                <input type="email" placeholder="Email Address" name="member3-email" class="form-input">
+                                <select name="member3-college" class="form-input">
+                                    <option value="" disabled selected>Select College</option>
+                                    <option>Government College of Engineering, Surat</option>
+                                    <option>Sardar Vallabhbhai National Institute of Technology</option>
+                                    <option>Birla Vishvakarma Mahavidyalaya</option>
+                                    <option>Dharmsinh Desai University</option>
+                                    <option>L.D. College of Engineering</option>
+                                </select>
+                                <select name="member3-gender" class="form-input">
+                                    <option value="" disabled selected>Select Gender</option>
+                                    <option>Male</option> <option>Female</option> <option>Other</option>
+                                </select>
+                                <select name="member3-semester" class="form-input">
+                                    <option value="" disabled selected>Select Semester</option>
+                                    <option>1</option> <option>2</option> <option>3</option> <option>4</option>
+                                    <option>5</option> <option>6</option> <option>7</option> <option>8</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Section 5: Member 4 -->
+                        <div>
+                             <h3 class="text-xl font-semibold text-white mb-6 border-b border-gray-700 pb-3">Member 4 Details</h3>
+                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <input type="text" placeholder="Full Name" name="member4-name" class="form-input">
+                                <input type="tel" placeholder="Contact Number" name="member4-contact" class="form-input">
+                                <input type="email" placeholder="Email Address" name="member4-email" class="form-input">
+                                <select name="member4-college" class="form-input">
+                                    <option value="" disabled selected>Select College</option>
+                                    <option>Government College of Engineering, Surat</option>
+                                    <option>Sardar Vallabhbhai National Institute of Technology</option>
+                                    <option>Birla Vishvakarma Mahavidyalaya</option>
+                                    <option>Dharmsinh Desai University</option>
+                                    <option>L.D. College of Engineering</option>
+                                </select>
+                                <select name="member4-gender" class="form-input">
+                                    <option value="" disabled selected>Select Gender</option>
+                                    <option>Male</option> <option>Female</option> <option>Other</option>
+                                </select>
+                                <select name="member4-semester" class="form-input">
+                                    <option value="" disabled selected>Select Semester</option>
+                                    <option>1</option> <option>2</option> <option>3</option> <option>4</option>
+                                    <option>5</option> <option>6</option> <option>7</option> <option>8</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Section 6: Member 5 -->
+                        <div>
+                            <h3 class="text-xl font-semibold text-white mb-6 border-b border-gray-700 pb-3">Member 5 Details</h3>
+                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <input type="text" placeholder="Full Name" name="member5-name" class="form-input">
+                                <input type="tel" placeholder="Contact Number" name="member5-contact" class="form-input">
+                                <input type="email" placeholder="Email Address" name="member5-email" class="form-input">
+                                <select name="member5-college" class="form-input">
+                                    <option value="" disabled selected>Select College</option>
+                                    <option>Government College of Engineering, Surat</option>
+                                    <option>Sardar Vallabhbhai National Institute of Technology</option>
+                                    <option>Birla Vishvakarma Mahavidyalaya</option>
+                                    <option>Dharmsinh Desai University</option>
+                                    <option>L.D. College of Engineering</option>
+                                </select>
+                                <select name="member5-gender" class="form-input">
+                                    <option value="" disabled selected>Select Gender</option>
+                                    <option>Male</option> <option>Female</option> <option>Other</option>
+                                </select>
+                                <select name="member5-semester" class="form-input">
+                                    <option value="" disabled selected>Select Semester</option>
+                                    <option>1</option> <option>2</option> <option>3</option> <option>4</option>
+                                    <option>5</option> <option>6</option> <option>7</option> <option>8</option>
+                                </select>
+                            </div>
+                        </div>
+                         
+                         <!-- Section 7: Member 6 -->
+                        <div>
+                             <h3 class="text-xl font-semibold text-white mb-6 border-b border-gray-700 pb-3">Member 6 Details</h3>
+                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <input type="text" placeholder="Full Name" name="member6-name" class="form-input">
+                                <input type="tel" placeholder="Contact Number" name="member6-contact" class="form-input">
+                                <input type="email" placeholder="Email Address" name="member6-email" class="form-input">
+                                <select name="member6-college" class="form-input">
+                                    <option value="" disabled selected>Select College</option>
+                                    <option>Government College of Engineering, Surat</option>
+                                    <option>Sardar Vallabhbhai National Institute of Technology</option>
+                                    <option>Birla Vishvakarma Mahavidyalaya</option>
+                                    <option>Dharmsinh Desai University</option>
+                                    <option>L.D. College of Engineering</option>
+                                </select>
+                                <select name="member6-gender" class="form-input">
+                                    <option value="" disabled selected>Select Gender</option>
+                                    <option>Male</option> <option>Female</option> <option>Other</option>
+                                </select>
+                                <select name="member6-semester" class="form-input">
+                                    <option value="" disabled selected>Select Semester</option>
+                                    <option>1</option> <option>2</option> <option>3</option> <option>4</option>
+                                    <option>5</option> <option>6</option> <option>7</option> <option>8</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full mt-8 bg-gradient-to-r from-fuchsia-500 via-pink-500 to-orange-500 text-white font-semibold py-3 px-4 rounded-lg shadow-lg hover:opacity-80 transition-opacity transform hover:scale-105">Submit Registration</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support Section -->
+        <section id="support" class="py-16 md:py-24">
+            <div class="max-w-4xl mx-auto p-8 rounded-xl card-bg border border-gray-800 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Need Support?</h2>
+                <p class="text-gray-400 mb-6">If you have any questions or need assistance, please feel free to reach out to our team. We're here to help!</p>
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6">
+                    <a href="mailto:studentdeveloperclub.foe@bmusurat.ac.in" class="support-btn">Email</a>
+                    <a href="https://wa.me/+917990201438" target="_blank" class="support-btn">WhatsApp</a>
+                    <a href="https://chat.whatsapp.com/I0d3Vr6B5g21wXojjoQdXI?mode=ac_t" target="_blank" class="support-btn">Join Group</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-16 md:py-24">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">Frequently Asked Questions</h2>
+            <div class="max-w-4xl mx-auto divide-y divide-gray-800">
+                <!-- FAQ Item 1 -->
+                <div class="py-4">
+                    <button class="faq-btn flex justify-between items-center w-full text-xl font-semibold text-white focus:outline-none" aria-expanded="false">
+                        <span>What is Smart India Hackathon?</span>
+                        <span class="text-2xl transform transition-transform duration-300">+</span>
+                    </button>
+                    <div class="faq-answer px-6 text-gray-400 leading-relaxed">
+                        <p>Smart India Hackathon is a nationwide initiative to provide students with a platform to solve some of the pressing problems we face in our daily lives, and thus inculcate a culture of product innovation and a mindset of problem-solving.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="py-4">
+                    <button class="faq-btn flex justify-between items-center w-full text-xl font-semibold text-white focus:outline-none" aria-expanded="false">
+                        <span>Who can apply?</span>
+                        <span class="text-2xl transform transition-transform duration-300">+</span>
+                    </button>
+                    <div class="faq-answer px-6 text-gray-400 leading-relaxed">
+                        <p>College students from any approved institution can apply for SIH.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="py-4">
+                    <button class="faq-btn flex justify-between items-center w-full text-xl font-semibold text-white focus:outline-none" aria-expanded="false">
+                        <span>Will there be a registration fee?</span>
+                        <span class="text-2xl transform transition-transform duration-300">+</span>
+                    </button>
+                    <div class="faq-answer px-6 text-gray-400 leading-relaxed">
+                        <p>No, there is no registration fee for SIH. It is completely free of cost.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 4 -->
+                <div class="py-4">
+                    <button class="faq-btn flex justify-between items-center w-full text-xl font-semibold text-white focus:outline-none" aria-expanded="false">
+                        <span>What is the prize money?</span>
+                        <span class="text-2xl transform transition-transform duration-300">+</span>
+                    </button>
+                    <div class="faq-answer px-6 text-gray-400 leading-relaxed">
+                        <p>The prize money for the winning team is Rs. 1 Lakh for every problem statement.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 5 -->
+                <div class="py-4">
+                    <button class="faq-btn flex justify-between items-center w-full text-xl font-semibold text-white focus:outline-none" aria-expanded="false">
+                        <span>Who will own the IP of the solution?</span>
+                        <span class="text-2xl transform transition-transform duration-300">+</span>
+                    </button>
+                    <div class="faq-answer px-6 text-gray-400 leading-relaxed">
+                        <p>The IP of the solution will be owned by the team.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Registration Success Message Modal -->
+    <div id="success-message" class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 z-50">
+        <div class="card-bg p-8 rounded-xl shadow-2xl max-w-sm w-full text-center border border-gray-900">
+            <h3 class="text-2xl font-bold text-white mb-4">Registration Successful!</h3>
+            <p class="text-gray-400">Thank you for registering. We'll be in touch with more details soon.</p>
+            <button id="close-message" class="mt-6 bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg hover:bg-gray-600 transition-colors">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black text-gray-400 py-6 border-t border-gray-900">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 Smart India Internal Hackathon. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const faqButtons = document.querySelectorAll('.faq-btn');
+        const registrationForm = document.getElementById('registration-form');
+        const successMessage = document.getElementById('success-message');
+        const closeMessageButton = document.getElementById('close-message');
+        const submitButton = registrationForm.querySelector('button[type="submit"]');
+
+
+        // FAQ Dropdown logic
+        faqButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+                // Close all other open answers
+                faqButtons.forEach(otherButton => {
+                    if (otherButton !== button && otherButton.getAttribute('aria-expanded') === 'true') {
+                        otherButton.setAttribute('aria-expanded', 'false');
+                        otherButton.nextElementSibling.classList.remove('open');
+                    }
+                });
+
+                // Toggle the current answer
+                if (isExpanded) {
+                    button.setAttribute('aria-expanded', 'false');
+                    answer.classList.remove('open');
+                } else {
+                    button.setAttribute('aria-expanded', 'true');
+                    answer.classList.add('open');
+                }
+            });
+        });
+        
+        // Registration form submission
+        registrationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // !!! IMPORTANT !!!
+            // 1. Create a new Google Sheet.
+            // 2. Go to Extensions > Apps Script.
+            // 3. Paste the following code into the script editor and save:
+            //
+            //    function doPost(e) {
+            //      try {
+            //        var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+            //        var headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+            //        var newRow = headers.map(function(header) {
+            //          return header === 'Timestamp' ? new Date() : e.parameter[header];
+            //        });
+            //        sheet.appendRow(newRow);
+            //        return ContentService.createTextOutput(JSON.stringify({ 'result': 'success' })).setMimeType(ContentService.MimeType.JSON);
+            //      } catch (error) {
+            //        return ContentService.createTextOutput(JSON.stringify({ 'result': 'error', 'error': error.toString() })).setMimeType(ContentService.MimeType.JSON);
+            //      }
+            //    }
+            //
+            // 4. In your Google Sheet, create column headers that exactly match the `name` attributes of your form inputs.
+            //    (e.g., problem-no, problem-theme, leader-name, leader-contact, etc.)
+            // 5. Deploy the script: Click Deploy > New deployment. Select "Web app". For "Who has access", choose "Anyone". Click Deploy.
+            // 6. Copy the Web app URL provided and paste it into the `scriptURL` variable below.
+
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxikKU3fjW_VJoQgZlJ4dVnU8W0peX4bU1kOAmhsoqobLbSOXy2gxXzTJNgfy0J_Xif/exec'; // Replace this URL
+            const formData = new FormData(registrationForm);
+
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting...';
+            submitButton.classList.add('opacity-50');
+
+            fetch(scriptURL, { method: 'POST', body: formData})
+                .then(response => {
+                    if (response.ok) {
+                        successMessage.classList.remove('hidden');
+                        registrationForm.reset();
+                    } else {
+                         throw new Error('Network response was not ok.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    alert('An error occurred during submission. Please check the console and your script URL.');
+                })
+                .finally(() => {
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Submit Registration';
+                    submitButton.classList.remove('opacity-50');
+                });
+        });
+
+        // Close success message modal
+        closeMessageButton.addEventListener('click', function() {
+            successMessage.classList.add('hidden');
+        });
+
+    </script>
+</body>
+</html>
+

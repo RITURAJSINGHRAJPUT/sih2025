@@ -211,7 +211,7 @@
                         <div>
                             <h3 class="text-2xl font-bold text-white mb-6 border-b border-gray-700 pb-3 gradient-text">Problem Statement Details</h3>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                <input type="number" placeholder="Problem Statement No." name="problem-no" required class="form-input">
+                                <input type="text" placeholder="e.g., SIH1234" name="problem-no" id="problem-no-input" required class="form-input" pattern="SIH[0-9]+" title="Format: SIH followed by numbers (e.g., SIH1234)">
                                 <select name="problem-theme" required class="form-input">
                                     <option value="" disabled selected>Select Theme</option>
                                     <option value="Agriculture, FoodTech & Rural Development">Agriculture, FoodTech & Rural Development</option>
@@ -503,6 +503,7 @@
         const successMessage = document.getElementById('success-message');
         const closeMessageButton = document.getElementById('close-message');
         const submitButton = registrationForm.querySelector('button[type="submit"]');
+        const problemNoInput = document.getElementById('problem-no-input');
 
 
         // FAQ Dropdown logic

@@ -2,7 +2,7 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
     <title>Smart India Hackathon 2025</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,9 +64,6 @@
         }
         .support-btn:hover {
             opacity: 0.8;
-        }
-        .character-count {
-            @apply text-right text-sm text-gray-500 mt-1;
         }
     </style>
 </head>
@@ -214,7 +211,6 @@
                         <div>
                             <h3 class="text-2xl font-bold text-white mb-6 border-b border-gray-700 pb-3 gradient-text">Problem Statement Details</h3>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                <input type="text" placeholder="Team Name" name="team-name" required class="form-input">
                                 <input type="text" placeholder="e.g., SIH1234" name="problem-no" id="problem-no-input" required class="form-input" pattern="SIH[0-9]+" title="Format: SIH followed by numbers (e.g., SIH1234)">
                                 <select name="problem-theme" required class="form-input">
                                     <option value="" disabled selected>Select Theme</option>
@@ -237,9 +233,8 @@
                                     <option value="Toys">Toys</option>
                                     <option value="Transportation & Logistics">Transportation & Logistics</option>
                                 </select>
-                                <textarea placeholder="Problem Description" name="problem-desc" id="problem-desc" required class="form-input md:col-span-2 lg:col-span-1" rows="3" maxlength="1000"></textarea>
+                                <textarea placeholder="Problem Description" name="problem-desc" required class="form-input md:col-span-2 lg:col-span-1" rows="1"></textarea>
                             </div>
-                            <div class="character-count" id="character-count">0 / 1000 characters</div>
                         </div>
 
                         <!-- Section 2: Team Leader -->
@@ -509,9 +504,6 @@
         const closeMessageButton = document.getElementById('close-message');
         const submitButton = registrationForm.querySelector('button[type="submit"]');
         const problemNoInput = document.getElementById('problem-no-input');
-        const problemDescTextarea = document.getElementById('problem-desc');
-        const characterCountDisplay = document.getElementById('character-count');
-        const maxChars = 1000;
 
 
         // FAQ Dropdown logic
@@ -539,17 +531,6 @@
             });
         });
         
-        // Update character count
-        problemDescTextarea.addEventListener('input', function() {
-            const currentLength = this.value.length;
-            characterCountDisplay.textContent = `${currentLength} / ${maxChars} characters`;
-            if (currentLength > maxChars) {
-                characterCountDisplay.classList.add('text-red-500');
-            } else {
-                characterCountDisplay.classList.remove('text-red-500');
-            }
-        });
-
         // Registration form submission
         registrationForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -573,7 +554,7 @@
             //   }
             //
             // 4. In your Google Sheet, create column headers that exactly match the `name` attributes of your form inputs.
-            //   (e.g., team-name, problem-no, problem-theme, leader-name, leader-contact, etc.)
+            //   (e.g., problem-no, problem-theme, leader-name, leader-contact, etc.)
             // 5. Deploy the script: Click Deploy > New deployment. Select "Web app". For "Who has access", choose "Anyone". Click Deploy.
             // 6. Copy the Web app URL provided and paste it into the `scriptURL` variable below.
 
@@ -589,32 +570,13 @@
                     if (response.ok) {
                         successMessage.classList.remove('hidden');
                         registrationForm.reset();
-                        // Reset character count display on successful submission
-                        characterCountDisplay.textContent = `0 / ${maxChars} characters`;
-                        characterCountDisplay.classList.remove('text-red-500');
                     } else {
                          throw new Error('Network response was not ok.');
                     }
                 })
                 .catch(error => {
                     console.error('Error!', error.message);
-                    // Use a custom message box instead of alert
-                    const errorMessage = 'An error occurred during submission. Please check the console and your script URL.';
-                    const errorBox = document.createElement('div');
-                    errorBox.className = 'fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 z-50';
-                    errorBox.innerHTML = `
-                        <div class="card-bg p-8 rounded-xl shadow-2xl max-w-sm w-full text-center border border-gray-900">
-                            <h3 class="text-2xl font-bold text-white mb-4">Submission Error</h3>
-                            <p class="text-gray-400">${errorMessage}</p>
-                            <button class="mt-6 bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg hover:bg-gray-600 transition-colors close-error">
-                                Close
-                            </button>
-                        </div>
-                    `;
-                    document.body.appendChild(errorBox);
-                    errorBox.querySelector('.close-error').addEventListener('click', () => {
-                        errorBox.remove();
-                    });
+                    alert('An error occurred during submission. Please check the console and your script URL.');
                 })
                 .finally(() => {
                     submitButton.disabled = false;
@@ -631,3 +593,5 @@
     </script>
 </body>
 </html>
+
+
